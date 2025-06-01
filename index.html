@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Yonatan</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <img src="LOGO_ICONS/LOGO-LOADING.png" alt="Logo" class="loading-logo">
+        <div class="spinner-container">
+          <div class="spinner"></div>
+        </div>
+        <div class="loading-text">LOADING</div>
+    </div>
+
+    <!-- Your Page Content Here -->
+    <div class="content">
+        <!-- Rest of your website content -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const video = document.querySelector('video');
+    const videoContainer = document.querySelector('.video-background');
+    
+    let videoLoaded = false;
+    let fallbackActivated = false;
+
+    function activateFallback() {
+        if (fallbackActivated) return;
+        fallbackActivated = true;
+        console.log('Activating fallback background');
+        if (video) {
+            video.style.display = 'none';
+            video.removeAttribute('autoplay');
+        }
+    }
+
+    function hideLoading() {
+        loadingScreen.classList.add('loaded');
+        setTimeout(() => {
+            loadingScreen.remove();
+        }, 500);
+    }
+
+    function handleVideoSuccess() {
+        if (videoLoaded || fallbackActivated) return;
+        videoLoaded = true;
+        console.log('Video successfully loaded');
+        if (video) video.style.opacity = 1;
+        hideLoading();
+    }
+
+    if (video) {
+        // Set initial video state
+        video.setAttribute('data-state', 'loading');
+        video.style.opacity = 0;
+
+        // Better browser support check
+        const canPlayMP4 = video.canPlayType('video/mp4') !== '';
+        
+        if (canPlayMP4) {
+            console.log('Browser supports MP4 video');
+            
+            // Event listeners
+            video.addEventListener('loadeddata', handleVideoSuccess);
+            video.addEventListener('canplay', handleVideoSuccess);
+            video.addEventListener('error', () => {
+                console.error('Video loading error');
+                activateFallback();
+                hideLoading();
+            });
+
+            // Attempt to play
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    console.warn('Autoplay blocked');
+                    activateFallback();
+                    hideLoading();
+                });
+            }
+        } else {
+            console.log('Browser does NOT support MP4');
+            activateFallback();
+            hideLoading();
+        }
+    } else {
+        console.error('No video element found');
+        activateFallback();
+        hideLoading();
+    }
+
+    // Fallback timeout
+    setTimeout(() => {
+        if (!videoLoaded && !fallbackActivated) {
+            console.warn('Loading timeout reached');
+            activateFallback();
+            hideLoading();
+        }
+    }, 5000);
+});
+</script>
+
+
+    <!-- Loading Screen -->
+    <!-- Landing Section -->
+    <header class="landing" role="banner">
+       <a href="index.html"><img id="LOGO" src="LOGO_ICONS/MY LOGO.png"></a>
+       <a href="index.html" class="home"><h1>Kirkos Project</h1></a>
+       <a href="index.html" class="home"><h2>Furnishing & Interior Design</h2></a>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs2" aria-label="Project categories">
+     <a href="VR-TOUR/index.html" class="explore">
+          Virtual Tour
+      </a>
+    </nav>
+    <nav class="GPT" aria-label="GPTA">
+     <p id="typed-description" aria-live="polite">
+        
+     </p> 
+    </nav>
+
+    <!-- for type erase effect-->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const typedElement = document.getElementById('typed-description');
+          
+          // Text configurations
+          const content = {
+            desktop: {
+              text: "",
+              speed: 30
+            },
+            mobile: {
+              texts: [
+                "",
+              ],
+              typeSpeed: 30,
+              pause: 5000,
+              fadeDuration: 800 // Should match CSS transition duration
+            }
+          };
+        
+          let animationTimeout;
+        
+          function clearAnimation() {
+            clearTimeout(animationTimeout);
+            typedElement.textContent = '';
+            typedElement.classList.remove('fade-out');
+          }
+        
+          function desktopTyping() {
+            let index = 0;
+            function type() {
+              if (index < content.desktop.text.length) {
+                typedElement.textContent += content.desktop.text.charAt(index);
+                index++;
+                animationTimeout = setTimeout(type, content.desktop.speed);
+              }
+            }
+            clearAnimation();
+            type();
+          }
+        
+          function mobileTyping() {
+            let currentSentence = 0;
+            let text = '';
+            
+            function type() {
+              const currentText = content.mobile.texts[currentSentence];
+              
+              if (text.length < currentText.length) {
+                text = currentText.substring(0, text.length + 1);
+                typedElement.textContent = text;
+                animationTimeout = setTimeout(type, content.mobile.typeSpeed);
+              } else {
+                animationTimeout = setTimeout(fadeOut, content.mobile.pause);
+              }
+            }
+        
+            function fadeOut() {
+              typedElement.classList.add('fade-out');
+              animationTimeout = setTimeout(() => {
+                currentSentence = (currentSentence + 1) % content.mobile.texts.length;
+                text = '';
+                typedElement.classList.remove('fade-out');
+                type(); // Start typing next sentence
+              }, content.mobile.fadeDuration);
+            }
+        
+            clearAnimation();
+            type(); // Start initial typing
+          }
+        
+          function init() {
+            if (window.innerWidth <= 768) {
+              mobileTyping();
+            } else {
+              desktopTyping();
+            }
+          }
+        
+          // Initial setup
+          init();
+        
+          // Handle window resize
+          window.addEventListener('resize', () => {
+            clearTimeout(animationTimeout);
+            init();
+          });
+        });
+        </script>
+        
+
+<!-- for type erase effect-->
+
+    <!-- Main Content -->
+    <main class="cards-section" role="main">
+     
+    </main>
+
+    <!-- Social Links Footer -->
+    <footer class="socials" role="contentinfo">
+        <p>©2025 All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
