@@ -2,7 +2,7 @@ var APP_DATA = {
   "scenes": [
     {
       "id": "0-managers-office---view-a",
-      "name": "Managers office - View A",
+      "name": "Manager's Office - View A",
       "levels": [
         {
           "tileSize": 256,
@@ -33,7 +33,7 @@ var APP_DATA = {
     },
     {
       "id": "1-managers-office---view-b",
-      "name": "Managers office - View B",
+      "name": "Manager's Office - View B",
       "levels": [
         {
           "tileSize": 256,
@@ -63,8 +63,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "2-waiting-room---view-a",
-      "name": "Waiting Room - View A",
+      "id": "2-managers-waiting-room---view-a",
+      "name": "Manager's Waiting Room - View A",
       "levels": [
         {
           "tileSize": 256,
@@ -94,8 +94,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "3-waiting-room---view-b",
-      "name": "Waiting Room - View B",
+      "id": "3-managers-waiting-room---view-b",
+      "name": "Manager's Waiting Room - View B",
       "levels": [
         {
           "tileSize": 256,
@@ -125,8 +125,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "4-managers-secretary---view-a",
-      "name": "Manager's Secretary - View A",
+      "id": "4-managers-secretary-office---view-a",
+      "name": "Manager's Secretary Office - View A",
       "levels": [
         {
           "tileSize": 256,
@@ -156,8 +156,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "5-managers-secretary---view-b",
-      "name": "Manager's Secretary - View B",
+      "id": "5-managers-secretary-office---view-b",
+      "name": "Manager's Secretary Office - View B",
       "levels": [
         {
           "tileSize": 256,
@@ -218,8 +218,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "7-deputy-manager-view-a",
-      "name": "Deputy Manager View A",
+      "id": "7-deputy-managers-office---view-a",
+      "name": "Deputy Manager's Office - View A",
       "levels": [
         {
           "tileSize": 256,
@@ -249,8 +249,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "8-deputy-manager-view-b",
-      "name": "Deputy Manager View B",
+      "id": "8-deputy-managers-office---view-b",
+      "name": "Deputy Manager's Office - View B",
       "levels": [
         {
           "tileSize": 256,
@@ -280,8 +280,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "9-deputy-manager-view-c",
-      "name": "Deputy Manager View C",
+      "id": "9-deputy-managers-office---view-c",
+      "name": "Deputy Manager's Office - View C",
       "levels": [
         {
           "tileSize": 256,
@@ -311,8 +311,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "10-deputyms-secretary-view-a",
-      "name": "Deputy,M's Secretary View A",
+      "id": "10-deputy-ms-secretary-office---view-a",
+      "name": "Deputy M's Secretary Office - View A",
       "levels": [
         {
           "tileSize": 256,
@@ -342,8 +342,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "11-deputyms-secretary-view-b",
-      "name": "Deputy,M's Secretary View B",
+      "id": "11-deputy-ms-secretary-office---view-b",
+      "name": "Deputy M's Secretary Office - View B",
       "levels": [
         {
           "tileSize": 256,
@@ -373,7 +373,7 @@ var APP_DATA = {
       "infoHotspots": []
     }
   ],
-  "name": "Kirkos",
+  "name": "Kirkos Sub city - PN",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": true,
